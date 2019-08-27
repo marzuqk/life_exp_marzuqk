@@ -15,4 +15,12 @@ Here we examine a life expectancy plot
 
 # Analysis
 
-
+```{r}
+library(gapminder)
+library(tidyverse)
+gu <- gapminder_unfiltered
+gu %>%
+  group_by(country) %>%
+  summarize(lifeExp = max(lifeExp)) -> flt_gu
+semi_join(flt_gu, gu, by = "country")  
+```
