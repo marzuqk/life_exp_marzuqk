@@ -22,11 +22,6 @@ library(gapminder)
 library(tidyverse)
 gu <- gapminder_unfiltered
 gu %>%
-  group_by(country) %>%
-  filter(lifeExp == max(lifeExp)) %>%
-  select(country, year, lifeExp) %>% 
-  arrange(year) 
-gu %>%
   group_by(year) %>%
   filter(lifeExp == max(lifeExp)) %>%
   select(country, year, lifeExp) %>% 
@@ -34,3 +29,7 @@ gu %>%
 ```
 
 We will now recreate the plot from Oeppen and Vaupel (2002).
+
+```{r}
+
+```
