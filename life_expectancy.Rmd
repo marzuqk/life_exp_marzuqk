@@ -25,7 +25,14 @@ gu %>%
   group_by(year) %>%
   filter(lifeExp == max(lifeExp)) %>%
   select(country, year, lifeExp) %>% 
-  arrange(year) 
+  arrange(year) -> gu2
+
+ggplot(data = gu2,
+       mapping = aes(x= year, y = lifeExp))+
+  geom_point(aes(fill = country), color = "black", pch = 21)+
+  geom_smooth(se=FALSE, method = lm, color = "blue")+
+  theme_bw()
+
 ```
 
 We will now recreate the plot from Oeppen and Vaupel (2002).
